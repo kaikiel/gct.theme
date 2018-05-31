@@ -484,6 +484,7 @@ header#header.header-fixed, body.dark-header header#header {
 }
 .search-box {
 	position: relative;
+        background: black;
 }
 .navbar-collapse.collapse {
 	display: inline-block;
@@ -587,7 +588,7 @@ header#header.header-fixed, body.dark-header header#header {
 	padding: 30px 18px;
 	text-transform: uppercase;
 	font-weight: 600;
-	color: #fff;
+	color: black;
 	font-size: 13px;
 }
 .nav > li {
@@ -1039,6 +1040,7 @@ _______________________________________________________*/
 }
 .product-item {
 	position: relative;
+        margin-bottom: 50px;
 }
 .pro_cat .product-slider-main {
 	position: absolute;
@@ -1054,6 +1056,7 @@ _______________________________________________________*/
 	position: relative;
 	overflow: hidden;
 	min-width: 70px;
+        padding-bottom: 5px;
 }
 .product-item:hover .product-image {
 	border-bottom: 1px solid #141414;

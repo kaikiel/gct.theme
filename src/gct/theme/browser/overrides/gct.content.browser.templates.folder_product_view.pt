@@ -26,10 +26,8 @@
           <select>
             <option value="" selected="selected">Name (A to Z)</option>
             <option value="">Name(Z - A)</option>
-            <option value="">price(low&gt;high)</option>
+            <option value="">(low&gt;high)</option>
             <option value="">price(high &gt; low)</option>
-            <option value="">rating(highest)</option>
-            <option value="">rating(lowest)</option>
           </select>
         </div>
       </div>
@@ -66,7 +64,7 @@
               <metal:block define-slot="entry">
                 <div class="col-md-4 col-sm-6"> 
                   <div tal:condition="python:item_type == 'Product'" class="product-item" tal:attributes="title item_type">
-                    <div class="product-image">
+                    <div class="product-image  text-center">
                       <a tal:attributes="href item_link;"
                          tal:condition="item/cover">
                          <img tal:attributes="src string:${item_url}/@@images/cover/thumb"/>
