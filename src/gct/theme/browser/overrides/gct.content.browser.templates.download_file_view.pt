@@ -10,15 +10,27 @@
 <metal:content-core fill-slot="content-core">
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
-
 <tal:repeat repeat="brain view/fileBrains">
-    <p>${brain/Title}</p>
-    <img src="${python: brain.getObject().absolute_url()}/@@images/image" />
-    <a href="${python: brain.getObject().absolute_url()}/@@download/file">file download</a>
-    <p tal:define="size python:brain.getObject().file.size">
-        ${python: round(float(size) / (1024 * 1024), 1)}MB 
-    </p>
+
+<div class="col-md-4 col-sm-6">
+  <div class="product-item">
+    <div class="product-image"> <a href="${python: brain.getObject().absolute_url()}/@@download/file"> 
+         <img src="${python: brain.getObject().absolute_url()}/@@images/image" alt=""> </a>
+    </div>
+    <div class="product-item-details">
+      <div class="product-item-name">
+          <a href="${python: brain.getObject().absolute_url()}/@@download/file">
+	  <p tal:define="size python:brain.getObject().file.size">
+	        ${python: round(float(size) / (1024 * 1024), 1)}MB
+          </p>
+	  </a>
+      </div>
+      <div class="price-box"> <span class="price">${brain/Title}</span> </div>
+    </div>
+  </div>
+</div>
 </tal:repeat>
+
 
 </metal:content-core>
 </metal:content-core>

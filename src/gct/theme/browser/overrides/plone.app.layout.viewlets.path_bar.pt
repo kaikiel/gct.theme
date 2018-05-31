@@ -1,4 +1,5 @@
-  <div class="banner inner-banner align-center" tal:define="breadcrumbs view/breadcrumbs" style="height:344px">
+  <div class="banner inner-banner align-center" tal:define="breadcrumbs view/breadcrumbs" 
+        style="height:344px;margin-bottom:20px">
     <div class="container">
       <section class="banner-detail">
         <div class="bread-crumb mt-30"  >
