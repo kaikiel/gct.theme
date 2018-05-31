@@ -109,9 +109,11 @@ $(function() {
         /* header-fixed JS Start */
         if ($(this).scrollTop() > 260){  
           $('header').addClass("header-fixed");
+	  $('.page-scroll').css("color", "#fff");
         }
-        else{ 
+        else{
           $('header').removeClass("header-fixed");
+          $('.page-scroll').css("color", "black");
         }
     });
     //On click scroll to top of page t = 1000ms

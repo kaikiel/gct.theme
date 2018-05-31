@@ -46,7 +46,11 @@
     </xsl:variable>
 
     <div class="{$central}">
-      <xsl:apply-templates css:select="#content-core" />
+      <div class="container">
+        <div class="row">
+          <xsl:apply-templates css:select="#content-core" />
+        </div>
+      </div>
     </div>
   </replace>
 
@@ -82,8 +86,13 @@
   <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
 
   <drop css:content="#edit-zone" />
-  <replace css:content=".banner" css:theme-children=".banner" />
+  <replace css:content=".banner" css:theme=".banner" />
   <replace css:content=".ptb-95" css:theme=".ptb-95" />
+  <replace css:content="#menu" css:theme="#menu" />
+  <after css:content=".banner.inner-banner.align-center" css:theme="#herder" />
+  <drop css:content=".banner.inner-banner.align-center" css:if-content="#cover_banner" />
+  <replace css:theme=".account-icon" />
+  <replace css:theme=".cart-icon" />
   <!--perload-->
   <drop css:theme=".se-pre-con" />
 
