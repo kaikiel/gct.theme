@@ -1,13 +1,14 @@
-  <div class="banner inner-banner align-center">
+  <div class="banner inner-banner align-center" tal:define="breadcrumbs view/breadcrumbs">
     <div class="container">
       <section class="banner-detail">
-        <h1 class="banner-title">About Us</h1>
-        <div class="bread-crumb mt-30"  tal:define="breadcrumbs view/breadcrumbs">
+        <h1 class="banner-title">${python: breadcrumbs[0]['Title']}</h1>
+        <div class="bread-crumb mt-30"  >
           <ul>
 	     <li id="breadcrumbs-home">
                 <a i18n:translate="tabs_home"
                    tal:attributes="href view/navigation_root_url">Home</a>
              </li>
+               <span style="color:white;font-size:20px"> > </span>
 	      <li tal:repeat="crumb breadcrumbs"
                   tal:attributes="id string:breadcrumbs-${repeat/crumb/number};">
                 <tal:item tal:define="is_last repeat/crumb/end;
