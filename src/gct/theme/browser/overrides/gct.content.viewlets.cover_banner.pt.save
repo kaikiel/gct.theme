@@ -1,0 +1,67 @@
+<div class="main-banner">
+
+        <div class="banner-1"> <img src="images/banner1.jpg" alt="Honour">
+
+          <div class="banner-detail">
+
+            <div class="row">
+
+              <div class="col-sm-7 col-xs-8">
+
+                <div class="banner-detail-inner"> <span class="slogan">up to 40% off</span>
+
+                  <h1 class="banner-title">latest bike</h1>
+
+                  <span class="offer">Components & Parts</span> </div>
+
+              </div>
+
+              <div class="col-sm-5 col-xs-4"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="banner-2"> <img src="images/banner2.jpg" alt="Honour">
+
+          <div class="banner-detail">
+
+            <div class="col-sm-5 col-xs-4"></div>
+
+            <div class="col-sm-7 col-xs-8">
+
+              <div class="banner-detail-inner"> <span class="slogan">Favorite Product</span>
+
+                <h1 class="banner-title">Discount</h1>
+
+                <span class="offer">our auto parts for sale</span> </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="banner-3"> <img src="images/banner3.jpg" alt="Honour">
+
+          <div class="banner-detail">
+
+            <div class="col-sm-7 col-xs-8">
+
+              <div class="banner-detail-inner"> <span class="slogan">Motor bike</span>
+
+                <h1 class="banner-title">Accessories</h1>
+
+                <span class="offer">All Categories in Accessories</span> </div>
+
+            </div>
+
+            <div class="col-sm-5 col-xs-4"></div>
+
+          </div>
+
+        </div>
+
+    </div>

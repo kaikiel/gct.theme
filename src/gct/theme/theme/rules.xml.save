@@ -46,7 +46,19 @@
     </xsl:variable>
 
     <div class="{$central}">
-      <xsl:apply-templates css:select="#content-core" />
+      <!-- <p class="pull-right visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+      </p> -->
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <xsl:apply-templates css:select="#content" />
+        </div>
+      </div>
+      <footer class="row">
+        <div class="col-xs-12 col-sm-12">
+          <xsl:copy-of css:select="#viewlet-below-content" />
+        </div>
+      </footer>
     </div>
   </replace>
 
@@ -80,12 +92,7 @@
 
   <!-- Footer -->
   <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
-
-  <drop css:content="#edit-zone" />
-  <replace css:content=".main-banner" css:theme-children=".banner" />
-  <replace css:content="#data-step1" css:theme="#data-step1"/>
-  <!--perload-->
-  <drop css:theme=".se-pre-con" />
-
+  
+  <drop >
 </rules>
 </rules>
