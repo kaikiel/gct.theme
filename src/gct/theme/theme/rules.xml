@@ -87,15 +87,18 @@
 
   <drop css:content="#edit-zone" />
   <replace css:content=".banner" css:theme=".banner" />
-  <replace css:content=".ptb-95" css:theme=".ptb-95" />
+  <replace css:content="#news_product" css:theme=".ptb-95.news_product" />
   <replace css:content="#menu" css:theme="#menu" />
+  <!--path bar-->
   <after css:content=".banner.inner-banner.align-center" css:theme="#herder" />
   <drop css:content=".banner.inner-banner.align-center" css:if-content="#cover_banner" />
   <replace css:theme=".account-icon" />
   <replace css:theme=".cart-icon" />
   <!--perload-->
   <drop css:theme=".se-pre-con" />
-
+  <!--News item banner-->
+  <replace css:content=".ptb-95.client-main.client-bg.align-center.dark-bg" 
+           css:theme=".ptb-95.client-main.client-bg.align-center.dark-bg"/>
+  
 </rules>
 </rules>
-
