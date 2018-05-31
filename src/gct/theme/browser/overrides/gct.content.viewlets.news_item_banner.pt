@@ -1,0 +1,15 @@
+  <section class="ptb-95 client-main client-bg align-center dark-bg">
+    <div class="container">
+      <div class="client-inner">
+        <div id="client" class="owl-carousel">
+        <tal:rep repeat="news_item view/newsItemBrains">
+          <div class="item client-detail">
+            <div class="client-img"> <img src="/gct/++theme++theme/images/testimonial_img1.jpg" alt="Honour"> </div>
+            <h4 class="sub-title client-title">${news_item/Title}</h4>
+	    <p>${news_item/Description}</p>
+          </div>
+        </tal:rep>
+        </div>
+      </div>
+    </div>
+  </section>
