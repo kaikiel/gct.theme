@@ -10,15 +10,34 @@
 <metal:content-core fill-slot="content-core">
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
+<style>
+.title, .fa-star{
+    font-size: 20px;
+}
+.desc{
+    font-size: 18px;
+    color: #6db031;
+}
+</style>
 
-${view/title}
-${view/modelNo}
-${view/beApplicable}
-${view/characteristic}
-${ view/body}
-<tal:repeat repeat="item view/imgList">
-    <img class="product-image-preview" tal:attributes="src string:${item}"  />
-</tal:repeat>
+<div class="col-md-12 col-sm-12 mb-xs-30" style='margin-bottom:20px'>
+   <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native"> 
+     <tal:repeat repeat="item view/imgList">
+        <a href="#"><img src="${item}" alt="Honour"></a>
+     </tal:repeat> 
+   </div>
+</div>
+<div class="col-md-6 col-sm-12">
+   <h2>PROJECT INFO</h2>
+   <p> <i class="fa fa-star"></i><span class='title'>Name:</span>  <span  class='desc'>${view/title}<span></p>
+   <p> <i class="fa fa-star"></i><span class='title'>Model No: </span>  <span class='desc'>${view/modelNo}</span></p>
+   <p> <i class="fa fa-star"></i><span class='title'>Be applicable:</span>  <span class='desc'>${view/beApplicable}</span></p>
+   <p> <i class="fa fa-star"></i><span class='title'>Characteristic:</span>  <span class='desc'>${view/characteristic}</span></p>
+</div>
+<div class="col-md-6 col-sm-12">
+   <h2>PROJECT DESCRIPTION</h2>
+   <p tal:content="structure view/body"></p>
+</div>
 
 </metal:content-core>
 </metal:content-core>
