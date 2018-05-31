@@ -1884,15 +1884,15 @@ _______________________________________________________*/
 	float: left;
 	margin: 0 2px;
 }
-.pagination-bar ul li a {
+.pagination-bar ul li a, ul li span {
 	background: #f0f0f0;
 	height: 35px;
-	width: 35px;
+        min-width: 35px;
 	display: inline-block;
 	line-height: 35px;
 	text-align: center;
 }
-.pagination-bar ul li.active a {
+.pagination-bar ul li.active span {
 	background: #292929;
 	color: #fff;
 }
