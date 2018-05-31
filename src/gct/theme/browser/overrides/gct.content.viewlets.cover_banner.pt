@@ -1,0 +1,18 @@
+<div class="banner">
+<div class="main-banner">
+  <tal:repeat repeat="banner view/bannerList">
+    <div class="banner-1"> <img src="${python: banner.getObject().absolute_url()}" alt="Honour">
+      <div class="banner-detail">
+        <div class="row">
+          <div class="col-sm-7 col-xs-8">
+            <div class="banner-detail-inner"> <span class="slogan">up to 40% off</span>
+              <h1 class="banner-title">latest bike</h1>
+              <span class="offer">Components & Parts</span> </div>
+            </div>
+          <div class="col-sm-5 col-xs-4"></div>
+        </div>
+      </div>
+    </div>
+  </tal:repeat>
+</div>
+</div>
