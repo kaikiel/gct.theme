@@ -11,6 +11,18 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
+
+  <section class="pt-95">
+    <div class="container">
+      <div class="product-slider">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="heading-part align-center mb-40">
+              <h2 class="main_title">Featured Products</h2>
+            </div>
+          </div>
+        </div>
+        <div class="row">
 <div class="owl-carousel pro_cat_slider">
   <tal:repFeature repeat="feature view/featureList">
   <tal:defFeature define="obj python: feature.to_object">
@@ -33,7 +45,10 @@
   </tal:defFeature>
   </tal:repFeature>
 </div>
-
+</div>
+      </div>
+    </div>
+  </section>
 
 </metal:content-core>
 </metal:content-core>

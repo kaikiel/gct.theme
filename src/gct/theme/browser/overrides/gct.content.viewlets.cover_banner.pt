@@ -1,3 +1,4 @@
+<div class="banner">
 <div class="main-banner">
   <tal:repeat repeat="banner view/bannerList">
     <div class="banner-1"> <img src="${python: banner.getObject().absolute_url()}" alt="Honour">
@@ -13,4 +14,5 @@
       </div>
     </div>
   </tal:repeat>
+</div>
 </div>
