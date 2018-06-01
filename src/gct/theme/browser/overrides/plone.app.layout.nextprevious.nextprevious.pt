@@ -1,0 +1,42 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     tal:define="enabled view/enabled|nothing;
+                 isViewTemplate view/isViewTemplate|nothing"
+     tal:condition="python:enabled and isViewTemplate"
+     tal:omit-tag=""
+     i18n:domain="plone">
+
+  <tal:block define="portal_url view/site_url;">
+    <div tal:define="next view/next;previous view/previous" class="col-md-12 col-xs-12">
+      <div class="pagination" tal:define="next view/next;previous view/previous"
+	style="display:flex;justify-content:space-around">
+	<div class="previous" tal:condition="previous">
+           <a title="Go to previous item"
+             i18n:attributes="title title_previous_item"
+             tal:attributes="href previous/url" style="color:white;padding:15px;background:black">
+            «
+            <span i18n:translate="label_previous_item" tal:omit-tag="">
+              Previous:
+              <span i18n:name="itemtitle" tal:replace="previous/title" />
+            </span>
+          </a>
+	</div>
+      
+        <div class="next" tal:condition="next" >
+	    <a title="Go to next item"
+             i18n:attributes="title title_next_item"
+             tal:attributes="href next/url" style="color:white;padding:15px;background:black">
+            <span i18n:translate="label_next_item" tal:omit-tag="">
+              Next:
+              <span i18n:name="itemtitle" tal:replace="next/title" />
+            </span>
+            »
+          </a>
+	</div>
+      </div>
+    </div>
+
+  </tal:block>
+
+</div>
