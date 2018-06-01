@@ -32,9 +32,7 @@
       <div class="sale-label"><span>Sale</span></div>
         <div class="product-image">
             <a href="${python: obj.absolute_url()}"> 
-            <img src="${python: obj.absolute_url()}/@@images/cover" style="width:278px;height:327.5px"> </a>
-          <div class="product-detail-inner">
-          </div>
+            <img src="${python: obj.absolute_url()}/@@images/cover" style="min-width:278px"/> </a>
         </div>
         <div class="product-item-details">
           <div class="product-item-name"> <a href="${python: obj.absolute_url()}">${python: obj.modelNo}</a> </div>

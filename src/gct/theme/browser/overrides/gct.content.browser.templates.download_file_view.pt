@@ -15,7 +15,8 @@
 <div class="col-md-4 col-sm-6">
   <div class="product-item">
     <div class="product-image"> <a href="${python: brain.getObject().absolute_url()}/@@download/file"> 
-         <img src="${python: brain.getObject().absolute_url()}/@@images/image" alt=""> </a>
+         <img src="${python: brain.getObject().absolute_url()}/@@images/image" 
+                   style="min-width:370px;min-height:340px"> </a>
     </div>
     <div class="product-item-details">
       <div class="product-item-name">
