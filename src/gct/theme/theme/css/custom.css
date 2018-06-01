@@ -485,6 +485,7 @@ header#header.header-fixed, body.dark-header header#header {
 .search-box {
 	position: relative;
         background: black;
+	border-radius: 7px;
 }
 .navbar-collapse.collapse {
 	display: inline-block;

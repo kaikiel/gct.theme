@@ -18,6 +18,9 @@
     font-size: 18px;
     color: #6db031;
 }
+.fotorama__wrap.fotorama__wrap--css3.fotorama__wrap--slide.fotorama__wrap--toggle-arrows{
+    margin: auto;
+}
 </style>
 
 <div class="col-md-12 col-sm-12 mb-xs-30" style='margin-bottom:20px'>
