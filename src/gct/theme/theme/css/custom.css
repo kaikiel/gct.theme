@@ -1887,7 +1887,7 @@ _______________________________________________________*/
 	float: left;
 	margin: 0 2px;
 }
-.pagination-bar ul li a, ul li span {
+.pagination-bar ul li a,.pagination-bar ul li span {
 	background: #f0f0f0;
 	height: 35px;
         min-width: 35px;
