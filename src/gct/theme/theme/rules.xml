@@ -108,8 +108,8 @@
   <!--search-->
   <replace css:content=".portletContent.form-container" css:theme-children=".header_search_toggle.desktop-view" />
 
-  <!--pagination-->
-  <after css:content=".pagination" css:theme=".pb-95"/>
+  <!--pagination only product_view-->
+  <after css:content=".pagination" css:theme=".pb-95" css:if-content=".template-product_view"/>
 
 </rules>
 </rules>
