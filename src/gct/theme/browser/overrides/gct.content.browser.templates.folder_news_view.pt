@@ -63,7 +63,7 @@
                          <a tal:attributes="href item_link;
                                             class string:$item_type_class $item_wf_state_class url;
                                             title item_type">
-			   <span style="font-size:25px;line-height:32px">${item_title}</span>
+			   ${item_title}
                          </a>
                       </h3>
                       <div class="description discreet"

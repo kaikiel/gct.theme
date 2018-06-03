@@ -11,11 +11,20 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
+<div class="col-xs-12" style="border-bottom:1px solid #eee;padding-bottom: 15px">
+  <img src="${python: view.context.absolute_url()}/@@images/image/preview" >
+</div>
 
-<img src="${python: view.context.absolute_url()}/@@images/image" >
-${python: view.context.title}
-${python: view.context.description}
-<p tal:content="structure view/context/text/output"></p>
+<div class="col-xs-12 ">
+  <h3>${python: view.context.title}</h3>
+</div>
+<div class="col-xs-12">
+  ${python: view.context.description}
+</div>
+
+<div class="col-xs-12" tal:content="structure view/context/text/output"></div>
+
+
 </metal:content-core>
 </metal:content-core>
 
