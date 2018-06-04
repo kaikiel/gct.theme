@@ -10,13 +10,13 @@
 <metal:content-core fill-slot="content-core">
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
-<tal:repeat repeat="brain view/fileBrains">
 
+<tal:repeat repeat="brain view/fileList">
 <div class="col-md-4 col-sm-6">
   <div class="product-item">
     <div class="product-image"> <a href="${python: brain.getObject().absolute_url()}/@@download/file"> 
          <img src="${python: brain.getObject().absolute_url()}/@@images/image" 
-                   style="min-width:370px;min-height:340px"> </a>
+                   style="width:370px;height:340px"> </a>
     </div>
     <div class="product-item-details">
       <div class="product-item-name">
