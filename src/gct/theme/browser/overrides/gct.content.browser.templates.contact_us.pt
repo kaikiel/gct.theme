@@ -1,0 +1,82 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://vuejs.org"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="gct.content">
+<body>
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<section class="pt-95 client-main align-center">
+    <div class="container">
+      <div class="contact-info">
+        <div class="row m-0">
+          <div class="col-sm-4 p-0">
+            <div class="contact-box">
+              <div class="contact-icon contact-phone-icon"></div>
+              <span><b>Tel</b></span>
+              <p>886-4-2562-1115</p>
+            </div>
+          </div>
+          <div class="col-sm-4 p-0">
+            <div class="contact-box">
+              <div class="contact-icon contact-mail-icon"></div>
+              <span><b>Mail</b></span>
+              <p>infoservices@honour.com </p>
+            </div>
+          </div>
+          <div class="col-sm-4 p-0">
+            <div class="contact-box">
+              <div class="contact-icon contact-open-icon"></div>
+              <span><b>Head Office</b></span>
+              <p>No. 115,Ln.210,Dafu Rd,</p>
+              <p>Shengang Dist. Taichung City 429, Taiwan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="ptb-95">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="heading-part align-center mb-40">
+            <h2 class="main_title" >Leave a message!</h2>
+          </div>
+        </div>
+      </div>
+      <div class="main-form">
+        <div class="row">
+          <form  name="contact_us" method="post">
+            <div class="col-sm-6 mb-30">
+              <input type="text" required placeholder="Name" name="name">
+            </div>
+            <div class="col-sm-6 mb-30">
+              <input type="email" required placeholder="Email" name="email">
+            </div>
+            <div class="col-xs-12 mb-30">
+              <textarea required placeholder="Message" rows="3" cols="30" name="message"></textarea>
+            </div>
+            <div class="col-xs-12">
+              <div class="align-center">
+                <button type="submit" name="submit" class="btn-black" >Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

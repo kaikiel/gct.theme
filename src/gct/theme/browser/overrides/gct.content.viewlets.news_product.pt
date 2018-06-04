@@ -6,16 +6,6 @@
             <div class="heading-part align-center mb-40">
               <h2 class="main_title">New Products</h2>
               <div class="category-bar mb-20">
-                <ul class="tab-stap">
-                  <li id="step1" class="active"><a href="javascript:void(0)">Dresses</a>•</li>
-                  <li id="step2"><a href="javascript:void(0)">Tops</a>•</li>
-                  <li id="step3"><a href="javascript:void(0)">Skirts</a>•</li>
-                  <li id="step4"><a href="javascript:void(0)">Jeans</a>•</li>
-                  <li id="step5"><a href="javascript:void(0)">Trousers</a>•</li>
-                  <li id="step6"><a href="javascript:void(0)">Shorts</a>•</li>
-                  <li id="step7"><a href="javascript:void(0)">Jackets</a>•</li>
-                  <li id="step8"><a href="javascript:void(0)">Sleepwear</a></li>
-                </ul>
               </div>
             </div>
           </div>
