@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="plone">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:block define-macro="content-core">
+  <div metal:define-macro="text-field-view"
+      id="parent-fieldname-text" class="stx"
+      tal:define="text view/text"
+      tal:condition="text"
+      tal:attributes="class view/text_class">
+    <div metal:define-slot="inside" tal:replace="structure text">The body</div>
+  </div>
+
+  <metal:listingmacro define-macro="listing">
+    <tal:results define="batch view/batch;
+                         thumb_scale_list view/get_thumb_scale_list;
+                         thumb_scale_table view/get_thumb_scale_table;
+                         thumb_scale_summary view/get_thumb_scale_summary;
+                         img_class python:'thumb-%s pull-right' % thumb_scale_list;
+                         showicons view/show_icons">
+      <tal:listing condition="batch">
+        <div class="blog-listing" metal:define-slot="entries"
+            tal:define="portal context/@@plone_portal_state/portal;
+                        image_scale portal/@@image_scale">
+          <tal:repeat repeat="item batch" metal:define-macro="entries">
+            <tal:block tal:define="obj item/getObject;
+                item_url item/getURL;
+                item_id item/getId;
+                item_title item/Title;
+                item_description item/Description;
+                item_type item/PortalType;
+                item_modified item/ModificationDate;
+                item_created item/CreationDate;
+                item_wf_state item/review_state;
+                item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
+                item_creator item/Creator;
+                item_link python:item_type in view.use_view_action and item_url+'/view' or item_url;
+                item_is_event python:view.is_event(obj);
+                item_has_image python:item.getIcon;
+                item_type_class python:('contenttype-' + view.normalizeString(item_type)) if showicons else '' ;
+                ">
+
+
+              <metal:block define-slot="entry">
+                <article class="entry col-md-12 col-xs-12" style="padding: 15px;border-bottom: 1px solid #eee">
+		  <div class="col-xs-12" style="margin-bottom: 15px">
+                      <a tal:attributes="href item_link;" >
+			<tal:img switch="python: item_has_image">
+                            <img tal:case="True" src="${item_url}/@@images/image/preview"/>
+			    <img tal:case="False" src="gct/++theme++theme/images/blog_img1.jpg" />
+			</tal:img>
+                      </a>
+                  </div>
+		  <div class="col-xs-12">
+		      <span class="post-date">${python: view.toLocalizedTime(obj.CreationDate())}</span>
+                      <h3 class="summary" tal:attributes="title item_type">
+                         <a tal:attributes="href item_link;
+                                            class string:$item_type_class $item_wf_state_class url;
+                                            title item_type">
+			   ${item_title}
+                         </a>
+                      </h3>
+                      <div class="description discreet"
+                          tal:condition="item_description"
+                          tal:content="item_description">
+                         description
+                      </div>
+                  </div>
+		  <hr/>
+                </article>
+              </metal:block>
+            </tal:block>
+          </tal:repeat>
+        </div>
+<style>
+.previous a, .next a{
+    padding: 0 10px;
+}
+</style>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="pagination-bar">
+              <div metal:use-macro="context/batch_macros/macros/navigation" />
+	    </div>
+	  </div>
+	</div>
+      </tal:listing>
+
+      <metal:empty metal:define-slot="no_items_in_listing">
+        <p class="discreet"
+            tal:condition="not: view/batch"
+            tal:content="view/no_items_message">
+          There are currently no items in this folder.
+        </p>
+      </metal:empty>
+
+    </tal:results>
+  </metal:listingmacro>
+
+</metal:block>
+</metal:content-core>
+
+</body>
+</html>
