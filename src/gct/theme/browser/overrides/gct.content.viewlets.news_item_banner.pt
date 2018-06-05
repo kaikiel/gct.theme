@@ -4,8 +4,9 @@
         <div id="client" class="owl-carousel">
         <tal:rep repeat="news_item view/newsItemBrains">
           <div class="item client-detail">
-            <div class="client-img"> <img src="/gct/++theme++theme/images/testimonial_img1.jpg" alt="Honour"> </div>
-            <h4 class="sub-title client-title">${news_item/Title}</h4>
+            <div class="client-img"> 
+	    <img src="/gct/++theme++theme/images/testimonial_img1.jpg" alt="Honour"> </div>
+            <a class="sub-title client-title" href="${python:news_item.getObject().absolute_url()}"><h4>${news_item/Title}</h4></a>
 	    <p>${news_item/Description}</p>
           </div>
         </tal:rep>

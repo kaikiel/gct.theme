@@ -23,7 +23,8 @@
     <!-- Don't use Plone icons, use the theme's -->
     <drop css:content="head link[rel='apple-touch-icon']" />
     <drop css:content="head link[rel='shortcut icon']" />
-
+    <!--js-->
+    <after css:theme-children="body" css:content-children="#js-bottom-slot" />
   </rules>
 
 
@@ -110,6 +111,7 @@
 
   <!--pagination only product_view-->
   <after css:content=".pagination" css:theme=".pb-95" css:if-content=".template-product_view"/>
+  
   
 </rules>
 </rules>

@@ -482,6 +482,9 @@ header#header {
 header#header.header-fixed, body.dark-header header#header {
 	background: rgba(0,0,0,0.9);
 }
+#header.header-fixed a, .navbar-collapse.collapse.in a{
+ 	color: white !important;
+}
 .search-box {
 	position: relative;
         background: black;
@@ -589,7 +592,7 @@ header#header.header-fixed, body.dark-header header#header {
 	padding: 30px 18px;
 	text-transform: uppercase;
 	font-weight: 600;
-	color: black;
+	color: black !important;
 	font-size: 13px;
 }
 .nav > li {
