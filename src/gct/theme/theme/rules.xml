@@ -86,7 +86,7 @@
   <replace css:theme="#portal-top" css:content-children="#portal-top" />
 
   <!-- Footer -->
-  <replace css:theme-children="#portal-footer" css:content-children="#portal-footer-wrapper" />
+  <replace css:content="#portal-footer-wrapper" css:theme=".footer.dark-bg" />
   <!--logo-->
   <replace css:content="#portal-logo" css:theme=".navbar-brand.page-scroll" />
   <replace css:content="#portal-logo" css:theme=".f-logo" />
@@ -110,6 +110,6 @@
 
   <!--pagination only product_view-->
   <after css:content=".pagination" css:theme=".pb-95" css:if-content=".template-product_view"/>
-
+  
 </rules>
 </rules>

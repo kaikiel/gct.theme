@@ -1,5 +1,115 @@
-<div class="row">
-	<div class="col-xs-12">
-		<div tal:on-error="nothing" tal:replace="structure view/render_footer_portlets" />
-	</div>
-</div>
+<?python
+import datetime
+?>
+  <!-- News Letter Start -->
+  <section>
+    <div class="newsletter">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="newsletter-inner center-sm" style="padding: 0px">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="newsletter-title">
+                    <div class="newsletter-icon col-md-2" style="margin:20px 0 0 0"> 
+			<img alt="Honour" src="gct/++theme++theme/images/newsletter-icon.png"> 
+		    </div>
+		    <div class="col-md-10">
+                      <h2 class="main_title" style="color:black;font-weight:bold">Subscribe Emails</h2>
+		      <span style="margin:0px">psum a tincidunt. VIvamus id ligula turiverra arcu quis</span>
+		      <span style="margin:0px">Sed imperdiet vitae ipsum a tincidDuis viverra arcu quis.</span>
+		    </div>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <form style="margin:20px 0 0 0">
+                    <input type="email" placeholder="Email Here...">
+                    <button title="Subscribe" class="btn-color">Subscribe</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- News Letter End --> 
+
+<div class="footer dark-bg">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-middle">
+          <div class="row">
+            <div class="col-md-3 f-col">
+              <div class="footer-static-block"> <span class="opener plus"></span>
+		<h3 class="title">Address</h3>
+                <ul class="footer-block-contant address-footer">
+                  <li class="item"> <i class="fa fa-map-marker"> </i>
+		    <p>No .115,Ln.210,Dafu Rd.,</p>
+		    <p>Shengang Dist. Taichung City 429,</p>
+		    <p>Taiwan</p>
+                    <hr>
+                  </li>
+                  <li class="item"> <i class="fa fa-envelope-o"> </i>
+                    <p> <a>louise.taiwan@msa.hinet.net</a> </p>
+                    <hr>
+                  </li>
+                  <li class="item"> <i class="fa fa-phone"> </i>
+                    <p>886-4-2562-1115</p>
+		    <hr>
+                  </li>
+		  <li class="item"> <i class="fa fa-fax"> </i>
+		    <p>886-4-2562-1115</p>
+		  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 f-col">
+              <div class="footer-static-block"> <span class="opener plus"></span>
+                <h3 class="title">Tag</h3>
+                <ul class="footer-block-contant tagcloud">
+                  <li tal:repeat="item view/catList"><a>${item}</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 f-col">
+              <div class="footer-static-block"> <span class="opener plus"></span>
+                <h3 class="title">Services</h3>
+                <ul class="footer-block-contant link">
+                  <li><a><span>■</span> About Us</a></li>
+                  <li><a><span>■</span> Jobs</a></li>
+                  <li><a><span>■</span> Affiliates</a></li>
+                  <li><a><span>■</span> Contact</a></li>
+                  <li><a><span>■</span> About Us</a></li>
+                  <li><a><span>■</span> Jobs</a></li>
+                  <li><a><span>■</span> Affiliates</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 f-col">
+              <div class="footer-static-block"> <span class="opener plus"></span>
+                <h3 class="title">Contact Us</h3>
+                <div class="footer-block-contant">
+		 <ul>
+		  <li tal:repeat="file view/fileBrains">
+		    <a href="${python:file.getObject().absolute_url()}"><span>■</span> ${file/Title}</a>
+		  </li>
+		 </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div class="footer-bottom">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="copy-right center-xs" style="text-align:center">
+		© ${python:datetime.datetime.now().year}  All Rights Reserved. Design By <a href="#">Webcotheme</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
