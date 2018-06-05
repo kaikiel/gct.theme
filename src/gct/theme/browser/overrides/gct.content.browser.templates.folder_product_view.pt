@@ -14,13 +14,13 @@
     .panel, .panel-group .panel-heading+.panel-collapse>.panel-body{
       border: none;
     }
-    .panel-title > a:before {
+    .panel-title > #collapse:before {
         float: right !important;
         font-family: FontAwesome;
         content:"\f068";
         padding-right: 5px;
     }
-    .panel-title > a.collapsed:before {
+    .panel-title > #collapse.collapsed:before {
         float: right !important;
         content:"\f067";
     }
@@ -41,7 +41,8 @@
             <div class="panel panel-default" tal:define="categoryId python: str(category).replace(' ', '')">
               <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
-                  <a class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-controls="${categoryId}" aria-expanded="false" tal:content="category" href="#${categoryId}"></a>
+                  <a id="collapse" class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-controls="${categoryId}" aria-expanded="false" tal:content="None" href="#${categoryId}"></a>
+                  <a tal:content="category" onclick="getCategorySort('p_category:${category}','p_subject:')" ></a>
                 </h4>
               </div>
               <div id="${categoryId}" class="panel-collapse collapse" role="tabpanel">
