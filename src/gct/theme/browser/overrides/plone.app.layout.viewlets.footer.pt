@@ -22,8 +22,8 @@ import datetime
                   </div>
                 </div>
                 <div class="col-md-5">
-                  <form style="margin:20px 0 0 0">
-                    <input type="email" placeholder="Email Here...">
+                  <form style="margin:20px 0 0 0" action="subscribe_email" method="post">
+                    <input type="email" placeholder="Email Here..." name="email">
                     <button title="Subscribe" class="btn-color">Subscribe</button>
                   </form>
                 </div>
@@ -69,7 +69,8 @@ import datetime
               <div class="footer-static-block"> <span class="opener plus"></span>
                 <h3 class="title">Tag</h3>
                 <ul class="footer-block-contant tagcloud">
-                  <li tal:repeat="item view/catList"><a>${item}</a></li>
+                  <li tal:repeat="item view/catList">
+		      <a href="${python: item[1]}">${python: item[0]}</a></li>
                 </ul>
               </div>
             </div>
@@ -77,13 +78,9 @@ import datetime
               <div class="footer-static-block"> <span class="opener plus"></span>
                 <h3 class="title">Services</h3>
                 <ul class="footer-block-contant link">
-                  <li><a><span>■</span> About Us</a></li>
-                  <li><a><span>■</span> Jobs</a></li>
-                  <li><a><span>■</span> Affiliates</a></li>
-                  <li><a><span>■</span> Contact</a></li>
-                  <li><a><span>■</span> About Us</a></li>
-                  <li><a><span>■</span> Jobs</a></li>
-                  <li><a><span>■</span> Affiliates</a></li>
+                  <li tal:repeat="subject view/subList">
+			<a href="${python: subject[1]}"><span>■</span> ${python: subject[0]}</a>
+                  </li>
                 </ul>
               </div>
             </div>
