@@ -53,7 +53,6 @@
                       <a tal:attributes="href item_link;" >
 			<tal:img switch="python: item_has_image">
                             <img tal:case="True" src="${item_url}/@@images/image/preview"/>
-			    <img tal:case="False" src="gct/++theme++theme/images/blog_img1.jpg" />
 			</tal:img>
                       </a>
                   </div>

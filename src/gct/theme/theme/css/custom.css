@@ -1581,7 +1581,7 @@ _______________________________________________________*/
 	margin-top: 0;
 }
 .client-main .item {
-	background: rgba(255, 255, 255, 0.15);
+	background: rgba(60, 60, 60, 0.15);
 	border: 1px solid #7f7f7f;
 	max-width: 710px;
 	display: inline-block;

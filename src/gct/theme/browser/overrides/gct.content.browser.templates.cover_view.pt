@@ -29,7 +29,6 @@
 
   <div class="item">
     <div class="product-item">
-      <div class="sale-label"><span>Sale</span></div>
         <div class="product-image">
             <a href="${python: obj.absolute_url()}"> 
             <img src="${python: obj.absolute_url()}/@@images/cover" style="min-width:278px;min-height:278px"/> </a>
