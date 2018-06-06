@@ -18,4 +18,10 @@
       directory="static"
       />
 
+  <browser:viewlet
+    name="plone.footer"
+    manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+    class=".footer.FooterViewlet"
+    permission="zope2.View"
+    />
 </configure>
