@@ -112,6 +112,8 @@
   <!--pagination only product_view-->
   <after css:content=".pagination" css:theme=".pb-95" css:if-content=".template-product_view"/>
   
-  
+  <!--drop backend pathbar-->
+  <drop css:content="#portal-breadcrumbs" />
+
 </rules>
 </rules>
