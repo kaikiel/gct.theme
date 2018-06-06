@@ -52,6 +52,11 @@
 	margin: 25px 0;
 }
 }
+ @media (min-width:992px){
+.banner{
+	margin-top: 82px;
+}
+}
  @media (min-width: 992px) {
 .mobile-sub-menu {
 	display: inline !important;

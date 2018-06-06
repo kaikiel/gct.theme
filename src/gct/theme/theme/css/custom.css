@@ -466,7 +466,7 @@ _______________________________________________________*/
 	-o-border-radius: 0px;
 }
 header#header {
-	background: rgba(255,255,255,0.15);
+	background: #282626;
 	/* border-bottom: 1px solid #7f7f7f;
     position: relative; */
 	position: fixed;
@@ -592,7 +592,7 @@ header#header.header-fixed, body.dark-header header#header {
 	padding: 30px 18px;
 	text-transform: uppercase;
 	font-weight: 600;
-	color: black !important;
+	color: #ffffff !important;
 	font-size: 13px;
 }
 .nav > li {
@@ -773,7 +773,6 @@ _______________________________________________________*/
 /* main-banner icon start */
 .banner .owl-prev, .banner .owl-next {
 	color: #222;
-	font-weight: bold;
 	text-transform: uppercase;
 	position: absolute;
 	top: 50%;
@@ -798,16 +797,26 @@ _______________________________________________________*/
 	z-index: -1;
 }
 .banner .owl-next:before {
-	border-color: #fff #fff transparent transparent;
-	border-style: solid;
-	border-width: 50px 20px;
-	bottom: -24px;
+	font-family: FontAwesome;
+        font-size: 25px;
+        font-weight: lighter;
+        color: gainsboro;
+        content: "\f054";
+        top: -38px;
+        background-color: #828181;
+        border-radius: 5px;
+        padding: 5px 5px 2px 7px;
 }
 .banner .owl-prev:before {
-	border-color: transparent transparent #fff #fff;
-	border-style: solid;
-	border-width: 50px 20px;
-	top: -24px;
+	font-family: FontAwesome;
+        font-size: 25px;
+        font-weight: lighter;
+        color: gainsboro;
+        content: "\f053";
+        top: 8px;
+        background-color: #828181;
+        border-radius: 5px;
+        padding: 5px 5px 2px 7px;
 }
 
 .main-banner .owl-controls .owl-pagination {
@@ -1648,16 +1657,26 @@ _______________________________________________________*/
 	z-index: -1;
 }
 .client-main .owl-next:before {
-	border-color: #fff #fff transparent transparent;
-	border-style: solid;
-	border-width: 50px 20px;
-	bottom: -22px;
+	font-family: FontAwesome;
+	font-size: 25px;
+	font-weight: lighter;
+	color: gainsboro;
+	content: "\f054";
+	top: -38px;
+	background-color: #828181;
+	border-radius: 5px;
+	padding: 5px 5px 2px 7px;
 }
 .client-main .owl-prev:before {
-	border-color: transparent transparent #fff #fff;
-	border-style: solid;
-	border-width: 50px 20px;
-	top: -22px;
+	font-family: FontAwesome;
+	font-size: 25px;
+	font-weight: lighter;
+	color: gainsboro;
+	content: "\f053";
+	top: 8px;
+	background-color: #828181;
+	border-radius: 5px;
+	padding: 5px 7px 2px 5px;
 }
 /* Testimonial CSS End */
 
