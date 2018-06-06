@@ -14,9 +14,14 @@
 <tal:repeat repeat="brain view/fileList">
 <div class="col-md-4 col-sm-6">
   <div class="product-item">
-    <div class="product-image"> <a href="${python: brain.getObject().absolute_url()}/@@download/file"> 
-         <img src="${python: brain.getObject().absolute_url()}/@@images/image" 
-                   style="width:370px;height:340px"> </a>
+    <div class="product-image"> 
+	<a href="${python: brain.getObject().absolute_url()}/@@download/file"> 
+	  <tal:switch switch="python: brain.getIcon">
+             <img src="${python: brain.getObject().absolute_url()}/@@images/image" 
+                tal:case="True"   style="width:370px;height:340px">
+	     <img tal:case="False" src="http://via.placeholder.com/370x340">
+	  </tal:switch> 
+	</a>
     </div>
     <div class="product-item-details">
       <div class="product-item-name">
