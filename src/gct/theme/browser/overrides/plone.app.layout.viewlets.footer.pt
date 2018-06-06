@@ -78,7 +78,7 @@ abs_url = api.portal.get().absolute_url()
             </div>
             <div class="col-md-3 f-col">
               <div class="footer-static-block"> <span class="opener plus"></span>
-                <h3 class="title">Services</h3>
+                <h3 class="title">Products</h3>
                 <ul class="footer-block-contant link">
                   <li tal:repeat="subject view/subList">
 			<a href="${python: view.subList[subject]}"><span>■</span> ${python: subject}</a>
@@ -88,7 +88,7 @@ abs_url = api.portal.get().absolute_url()
             </div>
             <div class="col-md-3 f-col">
               <div class="footer-static-block"> <span class="opener plus"></span>
-                <h3 class="title">Contact Us</h3>
+                <h3 class="title">Download</h3>
                 <div class="footer-block-contant">
 		 <ul>
 		  <li tal:repeat="file view/fileBrains">
