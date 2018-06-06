@@ -136,6 +136,8 @@
     <drop css:theme="#portal-top" />
     <drop css:theme="#portal-footer-wrapper" />
 
+    <!--drop frontend pathbar-->
+    <drop css:content="#banner" />
   </rules>
 
 </rules>
