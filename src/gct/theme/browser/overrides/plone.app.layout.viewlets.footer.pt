@@ -92,7 +92,7 @@ abs_url = api.portal.get().absolute_url()
                 <div class="footer-block-contant">
 		 <ul>
 		  <li tal:repeat="file view/fileBrains">
-		    <a href="${python:file.getObject().absolute_url()}"><span>■</span> ${file/Title}</a>
+		    <a href="${file/getURL}/@@download/file"><span>■</span> ${file/Title}</a>
 		  </li>
 		 </ul>
                 </div>
@@ -105,7 +105,7 @@ abs_url = api.portal.get().absolute_url()
           <div class="row">
             <div class="col-sm-12">
               <div class="copy-right center-xs" style="text-align:center">
-		© ${python:datetime.datetime.now().year}  All Rights Reserved. Design By <a href="#">Webcotheme</a></div>
+		Coptright©LOUISE RC ${python:datetime.datetime.now().year}. All Right Reserved</div>
             </div>
           </div>
         </div>
