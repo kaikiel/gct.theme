@@ -1,5 +1,7 @@
 <?python
 import datetime
+from plone import api
+abs_url = api.portal.get().absolute_url()
 ?>
   <!-- News Letter Start -->
   <section>
@@ -70,7 +72,7 @@ import datetime
                 <h3 class="title">Tag</h3>
                 <ul class="footer-block-contant tagcloud">
                   <li tal:repeat="item view/catList">
-		      <a href="${python: item[1]}">${python: item[0]}</a></li>
+		      <a href="${python: '%s/products?p_category=%s' %(abs_url, item) }">${python: item}</a></li>
                 </ul>
               </div>
             </div>
@@ -79,7 +81,7 @@ import datetime
                 <h3 class="title">Products</h3>
                 <ul class="footer-block-contant link">
                   <li tal:repeat="subject view/subList">
-			<a href="${python: subject[1]}"><span>■</span> ${python: subject[0]}</a>
+			<a href="${python: view.subList[subject]}"><span>■</span> ${python: subject}</a>
                   </li>
                 </ul>
               </div>
@@ -90,7 +92,7 @@ import datetime
                 <div class="footer-block-contant">
 		 <ul>
 		  <li tal:repeat="file view/fileBrains">
-		    <a href="${python:file.getObject().absolute_url()}"><span>■</span> ${file/Title}</a>
+		    <a href="${file/getURL}/@@download/file"><span>■</span> ${file/Title}</a>
 		  </li>
 		 </ul>
                 </div>
