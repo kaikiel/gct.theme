@@ -26,8 +26,8 @@
 <div class="owl-carousel pro_cat_slider">
   <tal:repFeature repeat="feature view/featureList">
   <tal:defFeature define="obj python: feature.to_object">
-
-  <div class="item">
+  
+  <div class="item" tal:condition="obj">
     <div class="product-item">
         <div class="product-image">
             <a href="${python: obj.absolute_url()}"> 
