@@ -105,7 +105,8 @@ abs_url = api.portal.get().absolute_url()
           <div class="row">
             <div class="col-sm-12">
               <div class="copy-right center-xs" style="text-align:center">
-		Coptright©LOUISE RC ${python:datetime.datetime.now().year}. All Right Reserved</div>
+		Coptright©LOUISE RC ${python:datetime.datetime.now().year}. All Right Reserved
+	      </div>
             </div>
           </div>
         </div>
