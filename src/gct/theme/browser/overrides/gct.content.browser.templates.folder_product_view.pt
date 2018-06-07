@@ -42,16 +42,24 @@
               <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
                   <a id="collapse" class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-controls="${categoryId}" aria-expanded="false" tal:content="None" href="#${categoryId}"></a>
-                  <a tal:content="category" onclick="getCategorySort('p_category:${category}','p_subject:')" ></a>
+                  <a onclick="getCategorySort('p_category:${category}','p_subject:')" >
+                    ${category} (${python: categoryDict[category][0]})
+                  </a>
                 </h4>
               </div>
               <div id="${categoryId}" class="panel-collapse collapse" role="tabpanel">
                 <div class="panel-body">
-                <ul>
-                <tal:repeat repeat="sub python: sorted(categoryDict[category])">
-                <li><a onclick="getCategorySort('p_category:${category}','p_subject:${sub}')">${sub}</a></li>
-                </tal:repeat>
-                </ul>
+                  <ul>
+                    <tal:repeat repeat="sub python: sorted(categoryDict[category][1])">
+                      <tal:define define="subNum python: categoryDict[category][1][sub]">
+                        <li>
+                          <a onclick="getCategorySort('p_category:${category}','p_subject:${sub}')">
+                            ${sub} (${subNum})
+                          </a>                          
+                        </li>
+                      </tal:define>
+                    </tal:repeat>
+                  </ul>
                 </div>
               </div>
             </div>    
@@ -72,7 +80,7 @@
                                   item_url item/getURL;
                                   item_title item/Title;
                                   ">
-                <li>
+                <li class="col-xs-12">
                   <div class="pro-media"> 
                     <a tal:attributes="href item_url;"
                        tal:condition="obj/cover">
@@ -116,8 +124,8 @@
                 <select data-shortBy="${view/sort_by}" id="short_by" onchange="getCategorySort()">
                   <option value="sort_on:sortable_title,sort_order:ascending" >Name (A to Z)</option>
                   <option value="sort_on:sortable_title,sort_order:descending">Name (Z - A)</option>
-                  <option value="sort_on:modified,sort_order:descending">Creation Date(new &gt;old)</option>
-                  <option value="sort_on:modified,sort_order:ascending">Creation Date(old &gt; new)</option>
+                  <option value="sort_on:effectiveDate,sort_order:descending">Creation Date(new &gt;old)</option>
+                  <option value="sort_on:effectiveDate,sort_order:ascending">Creation Date(old &gt; new)</option>
                 </select>
               </div>
             </div>
@@ -158,10 +166,10 @@
                     <metal:block define-slot="entry">
                       <div class="col-md-4 col-sm-6"> 
                         <div tal:condition="python:item_type == 'Product'" class="product-item" tal:attributes="title item_type">
-                          <div class="product-image  text-center">
+                          <div class="product-image  text-center" style="height:150px">
                             <a tal:attributes="href item_link;"
                                tal:condition="obj/cover">
-                               <img tal:attributes="src string:${item_url}/@@images/cover/thumb"/>
+                               <img tal:attributes="src string:${item_url}/@@images/cover/preview" style="height: 100%;"/>
                             </a>
                           </div>
                           <div class="product-item-details">
