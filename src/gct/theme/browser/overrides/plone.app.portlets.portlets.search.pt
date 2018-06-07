@@ -22,6 +22,7 @@
               tal:attributes="value request/SearchableText|nothing;
                               class python:livesearch and 'searchField portlet-search-gadget input-text' or 
                                     'searchField portlet-search-gadget-nols input-text'"
+              style="color:white;"
               />
              <button class="search-btn searchButton"></button>
 

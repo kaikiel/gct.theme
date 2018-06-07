@@ -20,7 +20,7 @@
   <tal:def define="obj product/getObject">
     <div class="item">
       <div class="product-item">
-        <div class="product-image" style="height:250px"> <a href="${python: obj.absolute_url()}"> 
+        <div class="product-image text-center" style="height:250px"> <a href="${python: obj.absolute_url()}"> 
 		<img src="${python: obj.absolute_url()}/@@images/cover" style="widght:100%; max-height:240px" > </a>
         </div>
 	<div class="product-item-details">
