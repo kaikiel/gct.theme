@@ -108,6 +108,7 @@
            css:theme=".ptb-95.client-main.client-bg.align-center.dark-bg"/>
   <!--search-->
   <replace css:content=".portletContent.form-container" css:theme-children=".header_search_toggle.desktop-view" />
+  <replace css:content=".header_search_toggle.mobile-view" css:theme=".header_search_toggle.mobile-view"/>
 
   <!--pagination only product_view-->
   <after css:content=".pagination" css:theme=".pb-95" css:if-content=".template-product_view"/>
