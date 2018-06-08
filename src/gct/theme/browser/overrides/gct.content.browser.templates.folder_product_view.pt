@@ -36,6 +36,13 @@
         </div>
         <div class="sidebar-contant">
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default" >
+            <div class="panel-heading" role="tab">
+              <h4 class="panel-title">
+                <a onclick="getCategorySort('p_category:','p_subject:')" >All</a>
+              </h4>
+            </div>
+          </div>    
           <tal:repeat tal:define="categoryDict view/categoryDict" 
                       tal:repeat="category python: sorted(categoryDict.keys())">    
             <div class="panel panel-default" tal:define="categoryId python: str(category).replace(' ', '')">
@@ -124,8 +131,8 @@
                 <select data-shortBy="${view/sort_by}" id="short_by" onchange="getCategorySort()">
                   <option value="sort_on:sortable_title,sort_order:ascending" >Name (A to Z)</option>
                   <option value="sort_on:sortable_title,sort_order:descending">Name (Z - A)</option>
-                  <option value="sort_on:effectiveDate,sort_order:descending">Creation Date(new &gt;old)</option>
-                  <option value="sort_on:effectiveDate,sort_order:ascending">Creation Date(old &gt; new)</option>
+                  <option value="sort_on:created,sort_order:descending">Creation Date(new &gt;old)</option>
+                  <option value="sort_on:created,sort_order:ascending">Creation Date(old &gt; new)</option>
                 </select>
               </div>
             </div>

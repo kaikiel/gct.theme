@@ -1574,14 +1574,14 @@ _______________________________________________________*/
 
 /* Testimonial CSS Start */
 .client-bg {
-	background: url(../images/perellex.jpg) no-repeat fixed center center;
+	background: url(../images/news_bg.jpg) no-repeat fixed center center;
 }
 .client-main .owl-carousel .owl-wrapper-outer {
 	padding-top: 65px;
 	margin-top: 0;
 }
 .client-main .item {
-	background: rgba(60, 60, 60, 0.15);
+	background: rgba(105, 105, 105, 0.45);
 	border: 1px solid #7f7f7f;
 	max-width: 710px;
 	display: inline-block;

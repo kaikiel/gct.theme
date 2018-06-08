@@ -1,0 +1,19 @@
+.newsletter {
+    background: none;
+    background-color: #c9c8c8;
+}
+
+.section-about .inner-banner {
+    background: url(../images/about.jpg) no-repeat scroll center center;
+}
+
+.section-products .inner-banner {
+/*    background: url(../images/products.jpg) no-repeat scroll center center; */
+}
+
+
+@media (min-width: 992px) {
+    .banner {
+        margin-top: 80px;
+    }
+}
