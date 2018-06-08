@@ -11,32 +11,85 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
-<tal:repeat repeat="brain view/fileList">
-<div class="col-md-4 col-sm-6">
-  <div class="product-item">
-    <div class="product-image"> 
-	<a href="${python: brain.getObject().absolute_url()}/@@download/file"> 
-	  <tal:switch switch="python: brain.getIcon">
-             <img src="${python: brain.getObject().absolute_url()}/@@images/image" 
-                tal:case="True"   style="width:370px;height:340px">
-	     <img tal:case="False" src="http://via.placeholder.com/370x340">
-	  </tal:switch> 
-	</a>
-    </div>
-    <div class="product-item-details">
-      <div class="product-item-name">
-          <a href="${python: brain.getObject().absolute_url()}/@@download/file">
-	  <p tal:define="size python:brain.getObject().file.size">
-	        ${python: round(float(size) / (1024 * 1024), 1)}MB
-          </p>
-	  </a>
-      </div>
-      <div class="price-box"> <span class="price">${brain/Title}</span> </div>
-    </div>
-  </div>
-</div>
-</tal:repeat>
+  <metal:listingmacro define-macro="listing">
+      <tal:results define="batch view/batch;
+                           thumb_scale_list view/get_thumb_scale_list;
+                           thumb_scale_table view/get_thumb_scale_table;
+                           thumb_scale_summary view/get_thumb_scale_summary;
+                           img_class python:'thumb-%s pull-right' % thumb_scale_list;
+                           showicons view/show_icons">
+        <tal:listing condition="batch">
+          <div class="entries" metal:define-slot="entries"
+              tal:define="portal context/@@plone_portal_state/portal;
+                          image_scale portal/@@image_scale">
+            <tal:repeat repeat="item batch" metal:define-macro="entries">
+              <tal:block tal:define="obj item/getObject;
+                  item_url item/getURL;
+                  item_id item/getId;
+                  item_title item/Title;
+                  item_description item/Description;
+                  item_type item/PortalType;
+                  item_modified item/ModificationDate;
+                  item_created item/CreationDate;
+                  item_wf_state item/review_state;
+                  item_wf_state_class python:'state-' + view.normalizeString(item_wf_state);
+                  item_creator item/Creator;
+                  item_link python:item_type in view.use_view_action and item_url+'/view' or item_url;
+                  item_is_event python:view.is_event(obj);
+                  item_has_image python:item.getIcon;
+                  item_type_class python:('contenttype-' + view.normalizeString(item_type)) if showicons else '' ;
+                  ">
+                <metal:block define-slot="entry">
+                  <article class="entry">
+                    <div class="col-md-4 col-sm-6">
+                      <div class="product-item">
+                        <div class="product-image"> 
+                       <a href="${item_url}/@@download/file"> 
+                         <tal:switch switch="item_has_image">
+                                 <img src="${item_url}/@@images/image" 
+                                    tal:case="True"   style="width:370px;height:340px">
+                            <img tal:case="False" src="http://via.placeholder.com/370x340">
+                         </tal:switch> 
+                       </a>
+                        </div>
+                        <div class="product-item-details">
+                          <div class="product-item-name">
+                              <a href="${item_url}/@@download/file">
+                         <p tal:define="size obj/file/size">
+                               ${python: round(float(size) / (1024 * 1024), 1)}MB
+                              </p>
+                         </a>
+                          </div>
+                          <div class="price-box"> <span class="price">${item_title}</span> </div>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </metal:block>
+              </tal:block>
+            </tal:repeat>
+          </div>
 
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="pagination-bar">
+                <div class="pagination-bar" metal:use-macro="context/batch_macros/macros/navigation" />
+              </div>
+            </div>
+          </div>
+
+        </tal:listing>
+
+        <metal:empty metal:define-slot="no_items_in_listing">
+          <p class="discreet"
+              tal:condition="not: view/batch"
+              tal:content="view/no_items_message">
+            There are currently no items in this folder.
+          </p>
+        </metal:empty>
+
+      </tal:results>
+    </metal:listingmacro>
 
 </metal:content-core>
 </metal:content-core>
