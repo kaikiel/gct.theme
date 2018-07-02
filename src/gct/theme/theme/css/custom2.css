@@ -1,0 +1,30 @@
+.newsletter {
+    background: none;
+    background-color: #c9c8c8;
+}
+
+.section-about .inner-banner {
+    background: url(../images/about.jpg) no-repeat scroll center center;
+}
+
+.section-file_container .inner-banner {
+    background: url(../images/download.jpg) no-repeat scroll center center;
+}
+
+.section-contact-us .inner-banner {
+    background: url(../images/contact_us.jpg) no-repeat scroll center center;
+}
+
+.section-distributor .inner-banner {
+    background: url(../images/Europe.jpg) no-repeat scroll center center;
+}
+
+.section-products .inner-banner {
+    background: url(../images/products.png) no-repeat scroll center center;
+}
+
+@media (min-width: 992px) {
+    .banner {
+        margin-top: 80px;
+    }
+}

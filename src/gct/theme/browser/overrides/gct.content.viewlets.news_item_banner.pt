@@ -5,9 +5,13 @@
         <tal:rep repeat="news_item view/newsItemBrains">
           <div class="item client-detail">
             <div class="client-img"> 
-	    <img src="/gct/++theme++theme/images/testimonial_img1.jpg" alt="Honour"> </div>
-            <a class="sub-title client-title" href="${python:news_item.getObject().absolute_url()}"><h3 style="font-weight:700; color:black">${news_item/Title}</h3></a>
-	    <p>${news_item/Description}</p>
+	    <img src="/gct/++theme++theme/images/news_icon.jpg" alt="Honour"> </div>
+            <a class="sub-title client-title" href="${python:news_item.absolute_url()}">
+              <h3 style="font-weight:700; color:black">${news_item/title}</h3>
+            </a>
+            <a href="${python:news_item.absolute_url()}">
+	      <p>${news_item/description}</p>
+            </a>
           </div>
         </tal:rep>
         </div>
