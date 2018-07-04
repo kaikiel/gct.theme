@@ -26,7 +26,7 @@ abs_url = api.portal.get().absolute_url()
                 <div class="col-md-5">
                   <form style="margin:20px 0 0 0" action="subscribe_email" method="post">
                     <input type="email" placeholder="Email Here..." name="email">
-                    <button title="Subscribe" class="btn-color">Subscribe</button>
+                    <button title="Subscribe" class="btn-color" style="background:#6db031">Subscribe</button>
                   </form>
                 </div>
               </div>

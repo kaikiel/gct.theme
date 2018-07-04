@@ -11,6 +11,14 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
+  <div style='margin-left:15px;margin-bottom:20px'>
+    <span>Sort By</span>
+    <select id="sort_order" onchange="change_sort_order()">
+      <option selected value="ascending">Name(A-Z)</option>
+      <option value="descending">Name(Z-A)</option>
+    </select>
+  </div>
+
   <metal:listingmacro define-macro="listing">
       <tal:results define="batch view/batch;
                            thumb_scale_list view/get_thumb_scale_list;
@@ -90,6 +98,22 @@
 
       </tal:results>
     </metal:listingmacro>
+
+<script>
+    window.onload = function selectChangeIndex() {
+        if(location.href.split('?')[1]){
+	    selected = location.href.split('?')[1].split('=')[1]
+	    document.getElementById('sort_order').value = selected
+	}
+    }
+
+    function change_sort_order(){
+	sort_order = document.getElementById('sort_order').value
+	url = location.href.split('?')[0]
+	url += '?sort_order=' + sort_order
+	location.href = url
+    }
+</script>
 
 </metal:content-core>
 </metal:content-core>
