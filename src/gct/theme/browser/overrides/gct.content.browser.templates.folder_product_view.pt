@@ -43,9 +43,9 @@
               </h4>
             </div>
           </div>    
-          <tal:repeat tal:define="categoryDict view/categoryDict" 
-                      tal:repeat="category python: sorted(categoryDict.keys())">    
-            <div class="panel panel-default" tal:define="categoryId python: str(category).replace(' ', '')">
+          <tal:repeat tal:define="categoryDict view/getCountResult" 
+                      tal:repeat="category python: sorted(categoryDict.keys())">
+            <div class="panel panel-default" tal:define="categoryId python: category.strip()">
               <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
                   <a id="collapse" class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-controls="${categoryId}" aria-expanded="false" tal:content="None" href="#${categoryId}"></a>
