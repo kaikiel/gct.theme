@@ -2,7 +2,9 @@
     background: none;
     background-color: #c9c8c8;
 }
-
+.portaltype-plone-site .inner-banner{
+    background: url(../images/about.jpg) no-repeat scroll center center;
+}
 .section-about .inner-banner {
     background: url(../images/about.jpg) no-repeat scroll center center;
 }
