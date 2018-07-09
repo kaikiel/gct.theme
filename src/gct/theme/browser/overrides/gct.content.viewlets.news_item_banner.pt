@@ -6,11 +6,11 @@
           <div class="item client-detail">
             <div class="client-img"> 
 	    <img src="/gct/++theme++theme/images/news_icon.jpg" alt="Honour"> </div>
-            <a class="sub-title client-title" href="${python:news_item.absolute_url()}">
+            <a class="sub-title client-title" href="javascript:void(0)">
               <h3 style="font-weight:700; color:black">${news_item/title}</h3>
             </a>
-            <a href="${python:news_item.absolute_url()}">
-	      <p>${news_item/description}</p>
+            <a href="javascript:void(0)">
+	      <p tal:content="structure python:news_item.description.replace('\n', '<br>')"></p>
             </a>
           </div>
         </tal:rep>

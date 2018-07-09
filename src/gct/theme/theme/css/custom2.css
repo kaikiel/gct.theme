@@ -1,3 +1,17 @@
+#breadcrumbs-home a {
+    display: none;
+}
+
+#breadcrumbs-home:before {
+    content:'\f015';
+    font-size: 16px;
+    font-family: FontAwesome
+}
+
+.navbar-nav > li > a:hover {
+    color:#6eb033 !important;
+}
+
 .newsletter {
     background: none;
     background-color: #c9c8c8;

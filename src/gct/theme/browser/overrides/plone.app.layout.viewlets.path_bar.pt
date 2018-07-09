@@ -3,6 +3,7 @@
     <div class="container">
       <section class="banner-detail">
         <div class="bread-crumb mt-30"  >
+          <h2 style="color:#fff; margin-bottom:0">${python:context.title.upper()}</h2>
           <ul>
 	     <li id="breadcrumbs-home">
                 <a i18n:translate="tabs_home"
@@ -23,7 +24,7 @@
                   </a>
                   <span id="breadcrumbs-currrent"
                         tal:condition="is_last"
-                        style="color: red">${title}</span>
+                        style="color: #fff">${title}</span>
               </tal:item>
             </li>
           </ul>
