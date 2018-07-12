@@ -1,3 +1,14 @@
+.p_modelNo{
+    color: rgb(109, 176, 49);
+    display: block;
+}
+
+.p_title{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+}
+
 #breadcrumbs-home a {
     display: none;
 }

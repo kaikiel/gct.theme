@@ -11,11 +11,58 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
+  <style>
+    .panel, .panel-group .panel-heading+.panel-collapse>.panel-body{
+      border: none;
+    }
+  </style>
+
+<!-- categories and new product  -->
+  <div class="col-md-3 col-sm-4 mb-xs-30">
+    <div class="sidebar-block">
+      <!-- categories  -->
+      <div class="sidebar-box listing-box mb-40"> <span class="opener plus"></span>
+        <div class="sidebar-title" id="categories" data-currentCategory="${view/f_category}">
+          <h3>Categories</h3>
+        </div>
+        <div class="sidebar-contant">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default" >
+              <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                  <a onclick="getCategorySort()" id="all" >All</a>
+                </h4>
+              </div>
+            </div>    
+            <tal:repeat tal:repeat="category view/getCategory">
+              <div class="panel panel-default" >
+                <div class="panel-heading" role="tab">
+                  <h4 class="panel-title">
+                    <a id="a${category}" onclick="getCategorySort('${category}')" >
+                      ${category} 
+                    </a>
+                  </h4>
+                </div>
+              </div>    
+            </tal:repeat>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-9 col-sm-8">
   <div style='margin-left:15px;margin-bottom:20px'>
     <span>Sort By</span>
-    <select id="sort_order" onchange="change_sort_order()">
+    <select id="sort_order" onchange="getCategorySort()" >
       <option selected value="ascending">Name(A-Z)</option>
       <option value="descending">Name(Z-A)</option>
+    </select>
+    <span>Show</span>
+    <select id="b_size" onchange="getCategorySort()" >
+      <option value="24">24</option>
+      <option selected value="12">12</option>
+      <option value="6">6</option>
     </select>
   </div>
 
@@ -51,24 +98,24 @@
                   <article class="entry">
                     <div class="col-md-4 col-sm-6">
                       <div class="product-item">
-                        <div class="product-image"> 
+                        <div class="product-image" style="height:250px"> 
                        <a href="${item_url}/@@download/file"> 
                          <tal:switch switch="item_has_image">
                                  <img src="${item_url}/@@images/image" 
-                                    tal:case="True"   style="width:370px;height:340px">
-                            <img tal:case="False" src="http://via.placeholder.com/370x340">
+                                    tal:case="True" style="margin:auto; max-height:240px; display: block;">
+                            <img tal:case="False" src="http://via.placeholder.com/370x340" style="margin:auto; max-height:240px; display: block;">
                          </tal:switch> 
                        </a>
                         </div>
                         <div class="product-item-details">
                           <div class="product-item-name">
                               <a href="${item_url}/@@download/file">
-                         <p tal:define="size obj/file/size">
+                         <p class="p_modelNo" tal:define="size obj/file/size">
                                ${python: round(float(size) / (1024 * 1024), 1)}MB
                               </p>
                          </a>
                           </div>
-                          <div class="price-box"> <span class="price">${item_title}</span> </div>
+                          <div class="p_title" class="price-box"> <span class="price">${item_title}</span> </div>
                         </div>
                       </div>
                     </div>
@@ -98,20 +145,35 @@
 
       </tal:results>
     </metal:listingmacro>
-
+</div>
 <script>
     window.onload = function selectChangeIndex() {
-        if(location.href.split('?')[1]){
-	    selected = location.href.split('?')[1].split('=')[1]
-	    document.getElementById('sort_order').value = selected
+        var url = new URL(location.href);
+        sort_order = url.searchParams.get('sort_order');
+        f_category = url.searchParams.get('f_category');
+        b_size     = url.searchParams.get('b_size');
+        if(sort_order != null){
+	    document.getElementById('sort_order').value = sort_order
 	}
+        if(b_size != null){
+	    document.getElementById('b_size').value = b_size
+	}
+        if(f_category == null || f_category == ""){
+            $("#all").css('color', '#6db031');
+        }else{
+            $("#a"+f_category).css('color', '#6db031'); 
+        }
     }
-
-    function change_sort_order(){
-	sort_order = document.getElementById('sort_order').value
-	url = location.href.split('?')[0]
-	url += '?sort_order=' + sort_order
-	location.href = url
+    function getCategorySort(){
+        var b_size =  document.getElementById("b_size").value;
+        var sort_order =  document.getElementById("sort_order").value;
+        var f_category = "";
+        if (arguments.length != 0){
+            f_category = arguments[0]
+        }
+        
+        var queryStr = "?" +  "b_size=" + b_size + "&sort_order=" + sort_order + "&f_category=" + f_category;
+        window.location.replace(queryStr);
     }
 </script>
 

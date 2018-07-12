@@ -45,22 +45,24 @@
           </div>    
           <tal:repeat tal:define="categoryDict view/getCountResult" 
                       tal:repeat="category python: sorted(categoryDict.keys())">
+            <tal:define tal:define="category_id python: ''.join(e for e in category if e.isalnum())">
             <div class="panel panel-default" tal:define="categoryId python: category.strip()">
               <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
-                  <a id="collapse" class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-controls="${categoryId}" aria-expanded="false" tal:content="None" href="#${categoryId}"></a>
-                  <a onclick="getCategorySort('p_category:${category}','p_subject:')" >
+                  <a id="collapse" class="collapsed" data-toggle="collapse" data-parent="#accordion" aria-controls="${category_id}" aria-expanded="false" tal:content="None" href="#${category_id}"></a>
+                  <a id="a${category_id}" onclick="getCategorySort('p_category:${category}','p_subject:')" >
                     ${category} (${python: categoryDict[category][0]})
                   </a>
                 </h4>
               </div>
-              <div id="${categoryId}" class="panel-collapse collapse" role="tabpanel">
+              <div id="${category_id}" class="panel-collapse collapse" role="tabpanel">
                 <div class="panel-body">
                   <ul>
                     <tal:repeat repeat="sub python: sorted(categoryDict[category][1])">
-                      <tal:define define="subNum python: categoryDict[category][1][sub]">
+                      <tal:define define="subNum python: categoryDict[category][1][sub];
+                                          subject_id python: ''.join(e for e in sub if e.isalnum());">
                         <li>
-                          <a onclick="getCategorySort('p_category:${category}','p_subject:${sub}')">
+                          <a id="a${python: category_id+subject_id}" onclick="getCategorySort('p_category:${category}','p_subject:${sub}')">
                             ${sub} (${subNum})
                           </a>                          
                         </li>
@@ -70,6 +72,7 @@
                 </div>
               </div>
             </div>    
+            </tal:define>
           </tal:repeat>
         </div>
         </div>
@@ -95,10 +98,10 @@
                     </a> 
                   </div>
                   <div class="pro-detail-info"> 
-                    <a tal:attributes="href item_url" tal:content="obj/modelNo"></a>
+                    <a class="p_modelNo" tal:attributes="href item_url" tal:content="obj/modelNo"></a>
                     <div class="price-box"> 
                       <span class="price">
-                        <a tal:attributes="href item_url" tal:content="item_title"></a>
+                        <a class="p_title" tal:attributes="href item_url" tal:content="item_title"></a>
                       </span> 
                     </div>
                   </div>
@@ -180,16 +183,18 @@
                             </a>
                           </div>
                           <div class="product-item-details">
-                            <div>
+                            <div style="display:block;">
                               <a tal:attributes="href item_link;
-                                                    title item_type"
-                                 tal:content="item_title">
+                                                 title item_type;"
+                                 class="p_modelNo"
+                                 tal:content="python: item.modelNo if item.modelNo else '&nbsp;'">
                               </a>
                             </div>
                             <div>
                               <a tal:attributes="href item_link;
-                                                 title item_type"
-                                 tal:content="item/modelNo">
+                                                 title item_type;"
+                                 class="p_title"
+                                 tal:content="item_title">
                               </a>
                             </div>
                           </div>
@@ -202,7 +207,7 @@
             </div>
             
             <!-- show with detailed  -->
-            <div id="detailed" style="display:none">
+            <div id="detailed" class="product-listing list-type" style="display:none">
               <div class="entries2" metal:define-slot="entries2"
                    tal:define="portal2 context/@@plone_portal_state/portal;
                                image_scale2 portal2/@@image_scale">
@@ -213,6 +218,7 @@
                         item_title2 item2/Title;
                         item_type2 item2/PortalType;
                         item_link2 python:item_type2 in view.use_view_action and item_url2+'/view' or item_url2;
+                        item_description2 python: obj2.body.raw if obj2.body else '';
                         ">
                       <metal:block define-slot="entry2">
                         <div tal:condition="python:item_type2 == 'Product'" tal:attributes="title item_type2">
@@ -228,17 +234,20 @@
                               </div>
                               <div class="product-item-details">
                                 <div class="product-item-name">
-                                  <a tal:attributes="href item_link2;
-                                                     title item_type2"
-                                     tal:content="item_title2">
-                                  </a>
                                   <p>
                                     <a tal:attributes="href item_link2;
-                                                       title item_type2"
+                                                       title item_type2;"
+                                       class="p_modelNo"
                                        tal:content="item2/modelNo">
                                     </a>
                                   </p>
+                                  <a tal:attributes="href item_link2;
+                                                     title item_type2;"
+                                     class="p_modelNo"
+                                     tal:content="item_title2">
+                                  </a>
                                 </div>
+                                <p tal:content="structure item_description2"></p>
                               </div>
                             </div>
                           </div>
@@ -276,6 +285,13 @@
           b_size.value = b_size.getAttribute("data-bSize");
           var short_by =  document.getElementById("short_by");
           short_by.value = short_by.getAttribute("data-shortBy");
+          var url = new URL(location.href);
+          p_category = url.searchParams.get("p_category").replace(/[^a-zA-Z0-9]/g, '');
+          p_subject  = url.searchParams.get("p_subject").replace(/[^a-zA-Z0-9]/g, '');
+          $("#"+p_category).collapse('show');
+          $("#a"+p_category).css('color', '#6db031');
+          $("#a"+p_category+p_subject).css('color', '#6db031');
+
       }
       function showThumbOrDetail(showID){
           var thumb = document.getElementById("thumbnail");

@@ -22,11 +22,10 @@
     margin: auto;
 }
 </style>
-
-<div class="col-md-12 col-sm-12 mb-xs-30" style='margin-bottom:20px'>
-   <div class="fotorama" data-nav="thumbs" data-allowfullscreen="native"> 
+<div class="col-md-12 col-sm-12 " style='margin-bottom:20px'>
+   <div class="fotorama" data-fit="cover" data-nav="thumbs" data-allowfullscreen="native"> 
      <tal:repeat repeat="item view/imgList">
-        <a href="#"><img src="${item}" alt="Honour"></a>
+        <img src="${item}" alt="Honour" data-fit="contain">
      </tal:repeat> 
    </div>
 </div>
@@ -41,7 +40,6 @@
    <h2>PROJECT DESCRIPTION</h2>
    <p tal:content="structure view/body"></p>
 </div>
-
 </metal:content-core>
 </metal:content-core>
 

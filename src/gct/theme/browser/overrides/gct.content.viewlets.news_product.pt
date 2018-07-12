@@ -24,8 +24,8 @@
 		<img src="${python: obj.absolute_url()}/@@images/cover" style="widght:100%; max-height:240px" > </a>
         </div>
 	<div class="product-item-details">
-          <div class="product-item-name"> <a href="${python: obj.absolute_url()}">${python: obj.modelNo}</a> </div>
-          <div class="price-box"> <span class="price">${python: obj.title}</span></div>
+          <div class="product-item-name"> <a class="p_modelNo" href="${python: obj.absolute_url()}">${python: obj.modelNo if obj.modelNo else '&nbsp;'}</a> </div>
+          <div class="price-box"> <span class="p_title">${python: obj.title}</span></div>
         </div>
       </div>
     </div>
