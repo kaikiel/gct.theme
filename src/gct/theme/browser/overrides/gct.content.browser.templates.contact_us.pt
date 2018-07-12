@@ -29,7 +29,20 @@ table {
       <div class="contact-info">
         <div class="row m-0">
           <h2 style="text-align: left;">Our Location</h2>
-          <tal:content tal:content="structure view/context/text/raw" />
+          <table>
+            <tbody>
+              <tr style="height: 19px;">
+                <td style="width: 17.8771%; height: 19px;"><strong>Head office</strong></td>
+                <td style="width: 82.1229%; height: 19px;"><strong>Telephone</strong></td>
+              </tr>
+              <tr style="height: 78px;">
+                <td style="width: 17.8771%; height: 78px;">
+                <p tal:content="structure view/address"></p>
+                </td>
+                <td style="width: 82.1229%; height: 78px;">${view/cellphone}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>

@@ -48,8 +48,7 @@ abs_url = api.portal.get().absolute_url()
 		<h3 class="title">Address</h3>
                 <ul class="footer-block-contant address-footer">
                   <li class="item"> <i class="fa fa-map-marker"> </i>
-		    <p>${view/address}</p>
-		    <p>Taiwan</p>
+		    <p tal:content="structure view/address"></p>
                     <hr>
                   </li>
                   <li class="item"> <i class="fa fa-envelope-o"> </i>

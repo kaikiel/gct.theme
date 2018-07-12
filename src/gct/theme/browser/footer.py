@@ -26,7 +26,7 @@ class FooterViewlet(FooterViewlet):
         fileBrains = api.content.find(path='gct/file_container', portal_type="File", sort_limit=8)
 
         self.email = api.portal.get_registry_record('email', interface=IInform, default='')
-	self.address = api.portal.get_registry_record('address', interface=IInform, default='')
+	self.address = api.portal.get_registry_record('address', interface=IInform, default='').replace('\r\n', '<br>')
 	self.cellphone = api.portal.get_registry_record('cellphone', interface=IInform, default='')
         self.fax = api.portal.get_registry_record('fax', interface=IInform, default='')
 
