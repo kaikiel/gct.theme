@@ -132,6 +132,7 @@
             <div class="short-by float-right-sm"> <span>Search</span>
               <div class="select-item">
                 <input type="text" name="searchableText" value="${view/searchableText}" />
+                <input type="submit" style="background: white; border: 1px solid;" value="search" />
               </div>
             </div>
           </div>
@@ -266,7 +267,7 @@
         <metal:empty metal:define-slot="no_items_in_listing">
           <p class="discreet"
               tal:condition="not: view/batch"
-              tal:content="view/no_items_message">
+              >
             There is no product that matches the search criteria 
           </p>
         </metal:empty>
