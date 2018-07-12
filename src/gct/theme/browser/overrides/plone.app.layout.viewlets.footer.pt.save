@@ -1,4 +1,4 @@
-<?python
+x<?python
 import datetime
 from plone import api
 abs_url = api.portal.get().absolute_url()
@@ -48,20 +48,21 @@ abs_url = api.portal.get().absolute_url()
 		<h3 class="title">Address</h3>
                 <ul class="footer-block-contant address-footer">
                   <li class="item"> <i class="fa fa-map-marker"> </i>
-		    <p>${view/address}</p>
+		    <p>No .115,Ln.210,Dafu Rd.,</p>
+		    <p>Shengang Dist. Taichung City 429,</p>
 		    <p>Taiwan</p>
                     <hr>
                   </li>
                   <li class="item"> <i class="fa fa-envelope-o"> </i>
-                    <p> <a>${view/email}</a> </p>
+                    <p> <a>louise.taiwan@msa.hinet.net</a> </p>
                     <hr>
                   </li>
                   <li class="item"> <i class="fa fa-phone"> </i>
-                    <p>${view/cellphone}</p>
+                    <p>886-4-2562-1115</p>
 		    <hr>
                   </li>
 		  <li class="item"> <i class="fa fa-fax"> </i>
-		    <p>${view/fax}</p>
+		    <p>886-4-2562-1115</p>
 		  </li>
                 </ul>
               </div>
