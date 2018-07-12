@@ -1,3 +1,7 @@
+#header.header-fixed .navbar-collapse.collapse .selected a, .navbar-collapse.collapse .selected a{
+    color: #6db031 !important;
+}
+
 .p_modelNo{
     color: rgb(109, 176, 49);
     display: block;
