@@ -3,29 +3,36 @@
     <div class="container">
       <section class="banner-detail">
         <div class="bread-crumb mt-30"  >
-          <h2 style="color:#fff; margin-bottom:0">${python:context.title.upper()}</h2>
+          <h2 style="color:#fff; margin-bottom:0" tal:switch="python: hasattr(view.view, 'viewTitle')">
+            <tal:case tal:case="True">${view/view/viewTitle}</tal:case>
+            <tal:case tal:case="False">${python:context.title.upper()}</tal:case>
+          </h2>
           <ul>
-	     <li id="breadcrumbs-home">
-                <a i18n:translate="tabs_home"
-                   tal:attributes="href view/navigation_root_url">Home</a>
-             </li>
-               <span style="color:white;font-size:20px"> > </span>
-	      <li tal:repeat="crumb breadcrumbs"
-                  tal:attributes="id string:breadcrumbs-${repeat/crumb/number};">
-                <tal:item tal:define="is_last repeat/crumb/end;
-                                url crumb/absolute_url;
-                                title crumb/Title">
-                  <a href="#"
-                     tal:omit-tag="not: url"
-                     tal:condition="python:not is_last"
-                     tal:attributes="href url"
-                     tal:content="title">
-                        crumb
-                  </a>
-                  <span id="breadcrumbs-currrent"
-                        tal:condition="is_last"
-                        style="color: #fff">${title}</span>
+            <li id="breadcrumbs-home">
+               <a i18n:translate="tabs_home"
+                  tal:attributes="href view/navigation_root_url">Home</a>
+            </li>
+            <li tal:repeat="crumb breadcrumbs"
+                tal:attributes="id string:breadcrumbs-${repeat/crumb/number};">
+              <tal:item tal:define="is_last repeat/crumb/end;
+                                    url crumb/absolute_url;
+                                    title crumb/Title">
+                <span style="color:white;font-size:20px"> ></span>
+                <a href="#"
+                   tal:omit-tag="not: url"
+                   tal:condition="python:not is_last"
+                   tal:attributes="href url"
+                   tal:content="title">
+                      crumb
+                </a>
+                <span id="breadcrumbs-currrent"
+                      tal:condition="is_last"
+                      style="color: #fff">${title}</span>
               </tal:item>
+            </li>
+            <li tal:condition="python: hasattr(view.view, 'viewTitle')" id="breadcrumbs-${view/view/viewTitle}">
+              <span style="color:white;font-size:20px"> ></span>
+              <span style="color: #fff">${view/view/viewTitle}</span>
             </li>
           </ul>
         </div>
