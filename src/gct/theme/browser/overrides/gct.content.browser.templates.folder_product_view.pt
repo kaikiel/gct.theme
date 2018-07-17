@@ -289,12 +289,12 @@
           p_category = url.searchParams.get("p_category");
           p_subject  = url.searchParams.get("p_subject");
           if(p_category != null && p_category != ""){
-              p_category.replace(/[^a-zA-Z0-9]/g, '')
+              p_category = p_category.replace(/[^a-zA-Z0-9]/g, '');
           }else{
               $("#all").css('color', '#6db031');
           }
           if(p_subject != null){
-              p_subject.replace(/[^a-zA-Z0-9]/g, '')
+              p_subject = p_subject.replace(/[^a-zA-Z0-9]/g, '');
           }
           $("#"+p_category).collapse('show');
           $("#a"+p_category).css('color', '#6db031');
