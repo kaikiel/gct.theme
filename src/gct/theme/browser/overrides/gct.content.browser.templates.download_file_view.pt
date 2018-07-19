@@ -38,7 +38,7 @@
               <div class="panel panel-default" >
                 <div class="panel-heading" role="tab">
                   <h4 class="panel-title">
-                    <a id="a${category}" onclick="getCategorySort('${category}')" >
+                    <a id="a${python: ''.join(str(ord(c)) for c in category)}" onclick="getCategorySort('${category}')" >
                       ${category} 
                     </a>
                   </h4>
@@ -161,6 +161,11 @@
         if(f_category == null || f_category == ""){
             $("#all").css('color', '#6db031');
         }else{
+            temp="";
+            for(var i=0; i<f_category.length; i++){
+                temp+=f_category.charCodeAt(i);
+            } 
+            f_category = temp;
             $("#a"+f_category).css('color', '#6db031'); 
         }
     }

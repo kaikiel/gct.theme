@@ -44,7 +44,7 @@
           </div>    
           <tal:repeat tal:define="categoryDict view/getCountResult" 
                       tal:repeat="category python: sorted(categoryDict.keys())">
-            <tal:define tal:define="category_id python: ''.join(e for e in category if e.isalnum())">
+            <tal:define tal:define="category_id python: ''.join(str(ord(c)) for c in category)">
             <div class="panel panel-default" tal:define="categoryId python: category.strip()">
               <div class="panel-heading" role="tab">
                 <h4 class="panel-title">
@@ -59,7 +59,7 @@
                   <ul>
                     <tal:repeat repeat="sub python: sorted(categoryDict[category][1])">
                       <tal:define define="subNum python: categoryDict[category][1][sub];
-                                          subject_id python: ''.join(e for e in sub if e.isalnum());">
+                                          subject_id python: ''.join(str(ord(c)) for c in sub);">
                         <li>
                           <a id="a${python: category_id+subject_id}" onclick="getCategorySort('p_category:${category}','p_subject:${sub}')">
                             ${sub} (${subNum})
@@ -281,12 +281,20 @@
           p_subject  = url.searchParams.get("p_subject");
           document.getElementById("category").value = p_category || "";
           if(p_category != null && p_category != ""){
-              p_category.replace(/[^a-zA-Z0-9]/g, '')
+              temp=""
+              for(var i=0; i<p_category.length; i++){
+                  temp+=p_category.charCodeAt(i);
+              }
+              p_category = temp;
           }else{
               $("#all").css('color', '#6db031');
           }
           if(p_subject != null){
-              p_subject.replace(/[^a-zA-Z0-9]/g, '')
+              temp=""
+              for(var i=0; i<p_subject.length; i++){
+                  temp+=p_subject.charCodeAt(i);
+              }
+              p_subject = temp;
           }
           $("#"+p_category).collapse('show');
           $("#a"+p_category).css('color', '#6db031');
@@ -327,7 +335,7 @@
               categoryStr += 'p_category' + "=" + categories.split(',')[0] + "&" + 'p_subject' + '=' + categories.split(',')[1];
           }
           queryStr += categoryStr;
-          window.location.replace(queryStr);
+          window.location.replace("?"+queryStr);
       }
   </script>
 
