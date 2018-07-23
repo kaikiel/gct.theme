@@ -91,9 +91,10 @@
         <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
       </xsl:variable>
       <div class="{$central}">
-        <p class="pull-right visible-xs">
+<!--        <p class="pull-right visible-xs">
           <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
         </p>
+-->
         <div class="row">
           <div class="col-xs-12 col-sm-12">
              <xsl:apply-templates css:select="#content" />
@@ -138,6 +139,15 @@
 
     <!--drop frontend pathbar-->
     <drop css:content="#banner" />
+
+    <!-- drop backend elements -->
+    <drop css:content="#contentview-edit"/>
+    <drop css:content="#contentview-view"/>
+    <drop css:content="#plone-contentmenu-workflow"/>
+    <drop css:content="#plone-contentmenu-actions"/>
+    <drop css:content="#plone-contentmenu-display"/>
+    <drop css:content="#plone-contentmenu-portletmanager"/>
+
   </rules>
 
 </rules>

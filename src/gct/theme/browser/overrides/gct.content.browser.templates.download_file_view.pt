@@ -101,7 +101,7 @@
                         <div class="product-image" style="height:250px"> 
                        <a href="${item_url}/@@download/file"> 
                          <tal:switch switch="item_has_image">
-                                 <img src="${item_url}/@@images/image" 
+                                 <img src="${item_url}/@@images/image/preview" 
                                     tal:case="True" style="margin:auto; max-height:240px; display: block;">
                             <img tal:case="False" src="http://via.placeholder.com/370x340" style="margin:auto; max-height:240px; display: block;">
                          </tal:switch> 

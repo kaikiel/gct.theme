@@ -213,7 +213,7 @@
                         item_title2 item2/Title;
                         item_type2 item2/PortalType;
                         item_link2 python:item_type2 in view.use_view_action and item_url2+'/view' or item_url2;
-                        item_description2 python: obj2.body.raw if obj2.body else '';
+                        item_description2 python: obj2.description;
                         ">
                       <metal:block define-slot="entry2">
                         <div tal:condition="python:item_type2 == 'Product'" tal:attributes="title item_type2">
