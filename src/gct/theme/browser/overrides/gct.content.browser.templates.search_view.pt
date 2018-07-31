@@ -328,11 +328,11 @@
           var queryStr = "";
           var categoryStr = '';
           for(i=0; i<arguments.length; i++){
-              categoryStr += arguments[i].split(':')[0] + "=" + arguments[i].split(':')[1] + "&";
+              categoryStr += encodeURIComponent(arguments[i].split(':')[0]) + "=" + encodeURIComponent(arguments[i].split(':')[1]) + "&";
           }
           var categories = document.getElementById("categories").getAttribute("data-currentCategory");
           if (categories != ',' && arguments.length == 0){
-              categoryStr += 'p_category' + "=" + categories.split(',')[0] + "&" + 'p_subject' + '=' + categories.split(',')[1];
+              categoryStr += 'p_category' + "=" + encodeURIComponent(categories.split(',')[0]) + "&" + 'p_subject' + '=' + encodeURIComponent(categories.split(',')[1]);
           }
           queryStr += categoryStr;
           window.location.replace("?"+queryStr);

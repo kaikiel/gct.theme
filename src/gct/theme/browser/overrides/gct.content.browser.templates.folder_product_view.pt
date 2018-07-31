@@ -134,8 +134,8 @@
                 <select data-shortBy="${view/sort_by}" id="short_by" onchange="getCategorySort()">
                   <option value="sort_on:sortable_title,sort_order:ascending" >Name (A to Z)</option>
                   <option value="sort_on:sortable_title,sort_order:descending">Name (Z - A)</option>
-                  <option value="sort_on:created,sort_order:descending">Creation Date(new &gt;old)</option>
-                  <option value="sort_on:created,sort_order:ascending">Creation Date(old &gt; new)</option>
+                  <option value="sort_on:p_modelNo,sort_order:ascending">Model No(A &gt;Z)</option>
+                  <option value="sort_on:p_modelNo,sort_order:descending">Model No(Z &gt; A)</option>
                 </select>
               </div>
             </div>
@@ -337,17 +337,17 @@
           var short_by =  document.getElementById("short_by").value;
           var shortByStr = '';
           short_by.split(',').forEach(function(shortBy){
-              shortByStr += shortBy.split(':')[0] + "=" + shortBy.split(':')[1] + "&";
+              shortByStr += encodeURIComponent(shortBy.split(':')[0]) + "=" + encodeURIComponent(shortBy.split(':')[1]) + "&";
               }
           )
-          var queryStr = "?" +  "b_size=" + b_size + "&" + shortByStr;
+          var queryStr = "?" +  "b_size=" + encodeURIComponent(b_size) + "&" + shortByStr;
           var categoryStr = '';
           for(i=0; i<arguments.length; i++){
-              categoryStr += arguments[i].split(':')[0] + "=" + arguments[i].split(':')[1] + "&";
+              categoryStr += encodeURIComponent(arguments[i].split(':')[0]) + "=" + encodeURIComponent(arguments[i].split(':')[1]) + "&";
           }
           var categories = document.getElementById("categories").getAttribute("data-currentCategory");
           if (categories != ',' && arguments.length == 0){
-              categoryStr += 'p_category' + "=" + categories.split(',')[0] + "&" + 'p_subject' + '=' + categories.split(',')[1];
+              categoryStr += 'p_category' + "=" + encodeURIComponent(categories.split(',')[0]) + "&" + 'p_subject' + '=' + encodeURIComponent(categories.split(',')[1]);
           }
           queryStr += categoryStr;
           window.location.replace(queryStr);
