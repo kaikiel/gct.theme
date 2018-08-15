@@ -5,6 +5,7 @@ from plone import api
 from gct.content.browser.configlet import IDict
 from gct.content.browser.base_inform_configlet import IInform
 import ast
+import urllib
 
 
 class FooterViewlet(FooterViewlet):
@@ -13,16 +14,23 @@ class FooterViewlet(FooterViewlet):
         self.year = date.today().year
         categoryDict = ast.literal_eval(api.portal.get_registry_record('dict', interface=IDict))
         abs_url = api.portal.get().absolute_url()
-        catList = []
+        catList = {}
         subList = {}
         count = 0
-        for category in sorted(categoryDict):
-            catList.append(category)
-            for subject in categoryDict[category][1]:
+
+        productBrains = api.content.find(path="gct/products", portal_type="Product")
+        data = {}
+        for item in productBrains:
+            category = item.p_category
+            subject = item.p_subject
+            if len(catList) <= 8:
+                queryStr = urllib.urlencode({'p_category' : category})
+                catList.update({category: '{}/products?{}'.format(abs_url, queryStr) })
+            if len(subList) <= 8:
                 subName = '{} {}'.format(subject, category)
-	        if count<8:
-                    count+=1
-                    subList[subName] = '%s/products?p_category=%s&p_subject=%s' %(abs_url, category, subject)
+                queryStr = urllib.urlencode({'p_category' : category, 'p_subject' : subject})
+                subList.update({subName: '{}/products?{}'.format(abs_url, queryStr) })
+
         fileBrains = api.content.find(path='gct/file_container', portal_type="File", sort_limit=8)
 
         self.email = api.portal.get_registry_record('email', interface=IInform, default='')

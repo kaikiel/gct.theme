@@ -70,7 +70,7 @@ abs_url = api.portal.get().absolute_url()
                 <h3 class="title">Tag</h3>
                 <ul class="footer-block-contant tagcloud">
                   <li tal:repeat="item view/catList">
-		      <a href="${python: '%s/products?p_category=%s' %(abs_url, item) }">${python: item}</a></li>
+		      <a href="${python: view.catList[item]}">${python: item}</a></li>
                 </ul>
               </div>
             </div>
